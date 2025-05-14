@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
         if (token) {
           axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
-          const response = await axios.get("/api/users/me")
+          const response = await axios.get("https://tile-server-y3ba.onrender.com/api/users/me")
           setCurrentUser(response.data)
         }
       } catch (err) {
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       setError(null)
-      const response = await axios.post("/api/auth/login", { email, password })
+      const response = await axios.post("https://tile-server-y3ba.onrender.com/api/auth/login", { email, password })
       const { token, user } = response.data
 
       localStorage.setItem("token", token)
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     try {
       setError(null)
-      const response = await axios.post("/api/auth/register", userData)
+      const response = await axios.post("https://tile-server-y3ba.onrender.com/api/auth/register", userData)
       const { token, user } = response.data
 
       localStorage.setItem("token", token)

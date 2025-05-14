@@ -147,7 +147,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         // Fetch user's calculations
-        const response = await axios.get("/api/calculations")
+        const response = await axios.get("https://tile-server-y3ba.onrender.com/api/calculations")
         setCalculations(response.data)
 
         // Calculate stats
